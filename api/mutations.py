@@ -1,7 +1,10 @@
 from datetime import date
+
 from ariadne import convert_kwargs_to_snake_case
+
 from api import db
 from api.models import Post
+
 
 @convert_kwargs_to_snake_case
 def create_post_resolver(obj, info, title, description):

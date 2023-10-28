@@ -1,11 +1,15 @@
-from api import app, db
-from ariadne import load_schema_from_path, make_executable_schema, \
-    graphql_sync, snake_case_fallback_resolvers, ObjectType
+from ariadne import (ObjectType, graphql_sync, load_schema_from_path,
+                     make_executable_schema, snake_case_fallback_resolvers)
 from ariadne.constants import PLAYGROUND_HTML
-from flask import request, jsonify
-from api.queries import listPosts_resolver, getPost_resolver
-from api.mutations import create_post_resolver, update_post_resolver, delete_post_resolver
+from flask import jsonify, request
 
+from api import app, db
+from api.mutations import (create_post_resolver, delete_post_resolver,
+                           update_post_resolver)
+from api.queries import getPost_resolver, listPosts_resolver
+from dotenv import load_dotenv
+
+load_dotenv()
 mutation = ObjectType("Mutation")
 mutation.set_field("createPost", create_post_resolver)
 mutation.set_field("updatePost", update_post_resolver)

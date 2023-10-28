@@ -18,3 +18,4 @@ SQLAlchemy==2.0.22
 starlette==0.31.1
 typing_extensions==4.8.0
 Werkzeug==3.0.1
+python-dotenv==1.0.0
